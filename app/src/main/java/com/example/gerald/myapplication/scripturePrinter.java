@@ -1,24 +1,25 @@
 package com.example.gerald.myapplication;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 
-public class MainActivity extends ActionBarActivity {
+public class scripturePrinter extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }
+        setContentView(R.layout.activity_scirpture_printer);
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+        // Gets the string from BossScriptureSharer and sets it
+        TextView textView = (TextView) findViewById(R.id.printer);
+        Intent intent = getIntent();
+        String scripture = intent.getStringExtra(BossScriptureSharer.EXTRA);
+        textView.setText(scripture);
     }
 
     @Override
